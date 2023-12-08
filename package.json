@@ -2,7 +2,7 @@
   "name": "car_rental",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tomm-rodion.io/car_rental/",
+  "homepage": "https://tomm-rodion.github.io/car_rental/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.16.3",
