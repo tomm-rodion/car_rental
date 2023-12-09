@@ -25,7 +25,7 @@ const persistConfig = {
   // інші налаштування, якщо потрібно
 };
 
-const persistedReducer = persistReducer(persistConfig);
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
   reducer: persistedReducer,
