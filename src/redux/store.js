@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -10,8 +10,25 @@ import {
   REGISTER,
 } from 'redux-persist';
 
+import storage from 'redux-persist/lib/storage';
+
+import { carRentalApp } from './operations';
+
+const reducers = combineReducers({
+  [carRentalApp.reducerPath]: carRentalApp.reducer,
+});
+
+// Конфігурація для redux-persist
+const persistConfig = {
+  key: 'root', // ключ для локального сховища
+  storage,
+  // інші налаштування, якщо потрібно
+};
+
+const persistedReducer = persistReducer(persistConfig);
+
 export const store = configureStore({
-  reducer: persistReducer,
+  reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -20,4 +37,5 @@ export const store = configureStore({
     }),
 });
 
+// Створюємо persist-стор для збереження стану в локальному сховищі
 export const persistor = persistStore(store);
