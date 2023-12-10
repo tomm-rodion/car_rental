@@ -1,4 +1,4 @@
-import { Header, Nav, Link } from './NavBar.styled';
+import { Header, Link, Nav } from './NavBar.styled';
 
 export default function NavBar() {
   return (
@@ -7,7 +7,7 @@ export default function NavBar() {
         <Nav>
           <Link to="/">Home</Link>
           <Link to="/catalog">Catalog</Link>
-          <Link to="favorites">Favorites</Link>
+          <Link to="/favorites">Favorites</Link>
         </Nav>
       </Header>
     </>

@@ -12,17 +12,20 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 
-import { carRentalApp } from './operations';
+import { carRentalApi } from './operations';
+import favoritesReducer from './slice';
 
 const reducers = combineReducers({
-  [carRentalApp.reducerPath]: carRentalApp.reducer,
+  [carRentalApi.reducerPath]: carRentalApi.reducer,
+  favorites: favoritesReducer,
 });
 
 // Конфігурація для redux-persist
 const persistConfig = {
-  key: 'root', // ключ для локального сховища
+  key: 'favorites',
+  version: 1,
   storage,
-  // інші налаштування, якщо потрібно
+  whitelist: ['favorites'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -34,7 +37,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(carRentalApi.middleware),
 });
 
 // Створюємо persist-стор для збереження стану в локальному сховищі

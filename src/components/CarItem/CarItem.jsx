@@ -12,6 +12,9 @@ import {
   Item,
 } from './CarItem.styled';
 
+import Modal from 'components/Modal/Modal';
+import SelectedIcon from 'components/SelectedIcon/SelectedIcon';
+
 export default function CarItem({ data }) {
   const [open, setOpen] = useState(false);
 
@@ -34,6 +37,7 @@ export default function CarItem({ data }) {
   return (
     <Wrapper>
       <ImageWrap>
+        <SelectedIcon data={data} />
         <Image src={img} alt="Car" />
       </ImageWrap>
       <TitleWrap>
@@ -52,7 +56,7 @@ export default function CarItem({ data }) {
         <Item>{accessories?.[0]}</Item>
       </List>
       <Button onClick={handleOpen} text="Learn more" width="274px" />
-      {open && <div open={open} onClose={handleClose} data={data}></div>}
+      {open && <Modal open={open} onClose={handleClose} data={data} />}
     </Wrapper>
   );
 }

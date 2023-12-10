@@ -2,8 +2,8 @@ import { Loader } from 'components/Loader/Loader';
 import NavBar from 'components/NavBar/NavBar';
 import { useEffect, useState } from 'react';
 import {
-  useGetAdvertsQuery,
   useGetCarsByPageQuery,
+  useGetAdvertsQuery,
 } from '../../redux/operations';
 import { LoadMore, WrapperFilter, WrapperList } from './Catalog.styled';
 import CarItem from 'components/CarItem/CarItem';
@@ -21,9 +21,12 @@ export default function Catalog() {
     minMileage: '',
     maxMileage: '',
   });
-
   const [filteredAdverts, setFilteredAdverts] = useState(null);
   const [isFiltering, setIsFiltering] = useState(false);
+
+  const loadMore = () => {
+    setPage(page + 1);
+  };
 
   useEffect(() => {
     if (data) {
@@ -33,43 +36,39 @@ export default function Catalog() {
 
   useEffect(() => {
     if (isFiltering) {
-      filterAdverts();
+      if (
+        filters.make ||
+        filters.filteredPrices.length > 0 ||
+        filters.minMileage ||
+        filters.maxMileage
+      ) {
+        const filteredAdverts = allAdverts.filter(advert => {
+          if (filters.make && advert.make !== filters.make.value) {
+            return false;
+          }
+          if (
+            filters.filteredPrices.length > 0 &&
+            !filters.filteredPrices.some(
+              priceObj => priceObj.value === advert.rentalPrice.replace('$', '')
+            )
+          ) {
+            return false;
+          }
+          if (filters.minMileage && advert.mileage < filters.minMileage) {
+            return false;
+          }
+          if (filters.maxMileage && advert.mileage > filters.maxMileage) {
+            return false;
+          }
+          return true;
+        });
+
+        setFilteredAdverts(filteredAdverts);
+      } else {
+        setFilteredAdverts([]);
+      }
     }
   }, [filters, allAdverts, isFiltering]);
-
-  const filterAdverts = () => {
-    if (
-      filters.make ||
-      filters.filteredPrices.length > 0 ||
-      filters.minMileage ||
-      filters.maxMileage
-    ) {
-      const filteredAdverts = allAdverts.filter(advert => {
-        if (filters.make && advert.make !== filters.make.value) {
-          return false;
-        }
-        if (
-          filters.filteredPrices.length > 0 &&
-          !filters.filteredPrices.some(
-            priceObj => priceObj.value === advert.rentalPrice.replace('$', '')
-          )
-        ) {
-          return false;
-        }
-        if (filters.minMileage && advert.mileage < filters.minMileage) {
-          return false;
-        }
-        if (filters.maxMileage && advert.mileage > filters.maxMileage) {
-          return false;
-        }
-        return true;
-      });
-
-      setFilteredAdverts(filteredAdverts);
-    } else {
-      setFilteredAdverts([]);
-    }
-  };
 
   const makes = allAdverts
     ? [...new Set(allAdverts.map(advert => advert.make))]
@@ -86,9 +85,6 @@ export default function Catalog() {
     : [];
   const minMileage = Math.min(...mileage);
   const maxMileage = Math.max(...mileage);
-
-  const renderCarItems = cars =>
-    cars.map((car, index) => <CarItem key={index} data={car} />);
 
   return (
     <>
@@ -109,7 +105,9 @@ export default function Catalog() {
       <WrapperList>
         {isFiltering ? (
           filteredAdverts !== null && filteredAdverts.length > 0 ? (
-            renderCarItems(filteredAdverts)
+            filteredAdverts.map((car, index) => (
+              <CarItem key={index} data={car} />
+            ))
           ) : (
             <div>No matches found based on the chosen criteria.</div>
           )
@@ -118,10 +116,10 @@ export default function Catalog() {
         ) : isLoading ? (
           <Loader />
         ) : allCars.length > 0 ? (
-          renderCarItems(allCars)
+          allCars.map((car, index) => <CarItem key={index} data={car} />)
         ) : null}
         {!isFiltering && data && data.length >= 8 && (
-          <LoadMore variant="text" onClick={LoadMore} disabled={isFetching}>
+          <LoadMore variant="text" onClick={loadMore} disabled={isFetching}>
             Load more
           </LoadMore>
         )}
