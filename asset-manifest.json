@@ -1,24 +1,25 @@
 {
   "files": {
     "main.css": "/car_rental/static/css/main.be605bfb.css",
-    "main.js": "/car_rental/static/js/main.5158eb63.js",
-    "static/js/685.3f4c777b.chunk.js": "/car_rental/static/js/685.3f4c777b.chunk.js",
-    "static/js/639.77f50ed6.chunk.js": "/car_rental/static/js/639.77f50ed6.chunk.js",
-    "static/js/634.3ed6e5cf.chunk.js": "/car_rental/static/js/634.3ed6e5cf.chunk.js",
+    "main.js": "/car_rental/static/js/main.9ab665f7.js",
+    "static/js/827.94897b42.chunk.js": "/car_rental/static/js/827.94897b42.chunk.js",
+    "static/js/639.37a49ac3.chunk.js": "/car_rental/static/js/639.37a49ac3.chunk.js",
+    "static/js/634.cb71e2ed.chunk.js": "/car_rental/static/js/634.cb71e2ed.chunk.js",
     "static/js/913.b4a4e311.chunk.js": "/car_rental/static/js/913.b4a4e311.chunk.js",
     "static/js/546.6e4d172e.chunk.js": "/car_rental/static/js/546.6e4d172e.chunk.js",
     "static/media/tesla-cybertruck-hero.jpg": "/car_rental/static/media/tesla-cybertruck-hero.222d03e0d34841086093.jpg",
+    "static/media/bnr_top_save.webp": "/car_rental/static/media/bnr_top_save.81cb8d2574fe95b17aba.webp",
     "index.html": "/car_rental/index.html",
     "main.be605bfb.css.map": "/car_rental/static/css/main.be605bfb.css.map",
-    "main.5158eb63.js.map": "/car_rental/static/js/main.5158eb63.js.map",
-    "685.3f4c777b.chunk.js.map": "/car_rental/static/js/685.3f4c777b.chunk.js.map",
-    "639.77f50ed6.chunk.js.map": "/car_rental/static/js/639.77f50ed6.chunk.js.map",
-    "634.3ed6e5cf.chunk.js.map": "/car_rental/static/js/634.3ed6e5cf.chunk.js.map",
+    "main.9ab665f7.js.map": "/car_rental/static/js/main.9ab665f7.js.map",
+    "827.94897b42.chunk.js.map": "/car_rental/static/js/827.94897b42.chunk.js.map",
+    "639.37a49ac3.chunk.js.map": "/car_rental/static/js/639.37a49ac3.chunk.js.map",
+    "634.cb71e2ed.chunk.js.map": "/car_rental/static/js/634.cb71e2ed.chunk.js.map",
     "913.b4a4e311.chunk.js.map": "/car_rental/static/js/913.b4a4e311.chunk.js.map",
     "546.6e4d172e.chunk.js.map": "/car_rental/static/js/546.6e4d172e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.be605bfb.css",
-    "static/js/main.5158eb63.js"
+    "static/js/main.9ab665f7.js"
   ]
 }
