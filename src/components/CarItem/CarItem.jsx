@@ -14,7 +14,7 @@ import {
 
 import Modal from 'components/Modal/Modal';
 import SelectedIcon from 'components/SelectedIcon/SelectedIcon';
-
+import placeholderImage from '../../images/bung.png';
 export default function CarItem({ data }) {
   const [open, setOpen] = useState(false);
 
@@ -38,7 +38,19 @@ export default function CarItem({ data }) {
     <Wrapper>
       <ImageWrap>
         <SelectedIcon data={data} />
-        <Image src={img} alt="Car" />
+        {img ? (
+          <Image
+            src={img}
+            alt="Car"
+            onError={e => {
+              if (e.nativeEvent.status === 401) {
+                return;
+              }
+            }}
+          />
+        ) : (
+          <Image src={placeholderImage} alt="Placeholder" />
+        )}
       </ImageWrap>
       <TitleWrap>
         <Title>

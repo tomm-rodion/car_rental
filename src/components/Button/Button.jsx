@@ -1,7 +1,13 @@
+import { StylesButton, Text } from './Button.styled';
+
 export default function Button({ text, onClick, width }) {
   return (
-    <button variant="contained" onClick={onClick} style={{ width: width }}>
-      <span>{text}</span>
-    </button>
+    <StylesButton
+      variant="contained"
+      onClick={onClick}
+      style={{ width: width }}
+    >
+      <Text>{text}</Text>
+    </StylesButton>
   );
 }

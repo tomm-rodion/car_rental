@@ -5,14 +5,14 @@ export const carRentalApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://6574a7f2b2fbb8f6509c7f2b.mockapi.io/',
   }),
-  tagTypes: ['Adverts'],
+  tagTypes: ['Advert'],
   endpoints: builder => ({
     getCarsByPage: builder.query({
-      query: (page = 1) => `adverts?page=${page}&limit=12`,
+      query: (page = 1) => `advert?page=${page}&limit=12`,
     }),
     getAdverts: builder.query({
-      query: () => '/adverts',
-      providesTags: ['Adverts'],
+      query: () => '/advert',
+      providesTags: ['Advert'],
     }),
   }),
 });
