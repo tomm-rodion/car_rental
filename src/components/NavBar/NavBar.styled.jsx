@@ -15,6 +15,10 @@ export const Header = styled.header`
 export const Nav = styled.nav`
   display: flex;
   gap: 100px;
+
+  @media screen and (min-width: 768px) {
+    gap: 40px;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -49,6 +53,16 @@ export const Link = styled(NavLink)`
     color: #3470ff;
     &::after {
       width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &::after {
+      bottom: 3px;
     }
   }
 `;

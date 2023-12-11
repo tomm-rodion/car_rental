@@ -20,7 +20,6 @@ const reducers = combineReducers({
   favorites: favoritesReducer,
 });
 
-// Конфігурація для redux-persist
 const persistConfig = {
   key: 'favorites',
   version: 1,
@@ -40,5 +39,4 @@ export const store = configureStore({
     }).concat(carRentalApi.middleware),
 });
 
-// Створюємо persist-стор для збереження стану в локальному сховищі
 export const persistor = persistStore(store);

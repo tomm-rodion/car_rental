@@ -7,6 +7,11 @@ export const WrapperFilter = styled.div`
   padding-left: 128px;
   padding-right: 128px;
   padding-top: 40px;
+
+  @media screen and (max-width: 767px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 export const WrapperList = styled.ul`
@@ -18,6 +23,13 @@ export const WrapperList = styled.ul`
   width: 1184px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 767px) {
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const LoadMore = styled.a`
@@ -37,5 +49,10 @@ export const LoadMore = styled.a`
 
   &:hover {
     color: #0b44cd;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 `;
