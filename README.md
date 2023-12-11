@@ -24,6 +24,8 @@ https://www.figma.com/file/XhC8FSCfAkraEF5l7Hx4fL/Test?type=design&node-id=0-1&m
 
 # Фото макету
 
+![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+![Image desing](https://github.com/tomm-rodion/car_rental/commit/e12c52788f590075d691420b712f94a11118bdc8
 # Технічне завдання
 
     Відповідно до макету реалізувати картку оголошення про здачу авто в оренду.
