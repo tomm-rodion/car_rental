@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/car_rental/static/css/main.a715785b.css",
-    "main.js": "/car_rental/static/js/main.688a8f7b.js",
-    "static/js/485.ea500cfe.chunk.js": "/car_rental/static/js/485.ea500cfe.chunk.js",
+    "main.css": "/car_rental/static/css/main.be605bfb.css",
+    "main.js": "/car_rental/static/js/main.5158eb63.js",
+    "static/js/685.3f4c777b.chunk.js": "/car_rental/static/js/685.3f4c777b.chunk.js",
     "static/js/639.77f50ed6.chunk.js": "/car_rental/static/js/639.77f50ed6.chunk.js",
     "static/js/634.3ed6e5cf.chunk.js": "/car_rental/static/js/634.3ed6e5cf.chunk.js",
     "static/js/913.b4a4e311.chunk.js": "/car_rental/static/js/913.b4a4e311.chunk.js",
     "static/js/546.6e4d172e.chunk.js": "/car_rental/static/js/546.6e4d172e.chunk.js",
+    "static/media/tesla-cybertruck-hero.jpg": "/car_rental/static/media/tesla-cybertruck-hero.222d03e0d34841086093.jpg",
     "index.html": "/car_rental/index.html",
-    "main.a715785b.css.map": "/car_rental/static/css/main.a715785b.css.map",
-    "main.688a8f7b.js.map": "/car_rental/static/js/main.688a8f7b.js.map",
-    "485.ea500cfe.chunk.js.map": "/car_rental/static/js/485.ea500cfe.chunk.js.map",
+    "main.be605bfb.css.map": "/car_rental/static/css/main.be605bfb.css.map",
+    "main.5158eb63.js.map": "/car_rental/static/js/main.5158eb63.js.map",
+    "685.3f4c777b.chunk.js.map": "/car_rental/static/js/685.3f4c777b.chunk.js.map",
     "639.77f50ed6.chunk.js.map": "/car_rental/static/js/639.77f50ed6.chunk.js.map",
     "634.3ed6e5cf.chunk.js.map": "/car_rental/static/js/634.3ed6e5cf.chunk.js.map",
     "913.b4a4e311.chunk.js.map": "/car_rental/static/js/913.b4a4e311.chunk.js.map",
     "546.6e4d172e.chunk.js.map": "/car_rental/static/js/546.6e4d172e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a715785b.css",
-    "static/js/main.688a8f7b.js"
+    "static/css/main.be605bfb.css",
+    "static/js/main.5158eb63.js"
   ]
 }
