@@ -1,13 +1,34 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import ImageHero from '../../images/tesla-cybertruck-hero.jpg';
+import ImageHeroUk from '../../images/bnr_top_save.webp';
 
+export const WrapperUk = styled.div`
+  display: flex;
+  background-image: url(${ImageHeroUk});
+  background-repeat: no-repeat;
+  background-position: top;
+
+  width: 100%;
+  height: 25px;
+`;
+
+export const TitleUk = styled.h2`
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  font-size: 20px;
+  margin-left: 15px;
+`;
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-image: url(${ImageHero});
   background-repeat: no-repeat;
-  background-attachment: local;
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
 
@@ -18,13 +39,13 @@ export const Wrapper = styled.div`
 
 export const Text = styled.p`
   display: flex;
-  font-size: 40px;
+  font-size: 45px;
   font-style: normal;
   font-weight: 600;
   color: #ffffff;
   text-align: center;
-  width: 460px;
-  margin-top: 40px;
+  width: 490px;
+  margin-top: 20px;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;

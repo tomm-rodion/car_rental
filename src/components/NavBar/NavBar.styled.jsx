@@ -9,7 +9,7 @@ export const Header = styled.header`
   justify-content: center;
 
   width: 100%;
-  background-color: gray;
+  background-color: #f1f4f5;
 `;
 
 export const Nav = styled.nav`
@@ -20,14 +20,35 @@ export const Nav = styled.nav`
 export const Link = styled(NavLink)`
   padding-top: 15px;
   padding-bottom: 15px;
-  font-family: ' Manrope ';
+  font-family: 'Manrope';
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   color: #000000;
   text-decoration: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: #3470ff;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 
   &.active {
     color: #3470ff;
+    &::after {
+      width: 100%;
+    }
   }
 `;
