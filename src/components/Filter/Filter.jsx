@@ -149,4 +149,9 @@ const selectStyles = {
     ...styles,
     color: 'rgba(18, 20, 23, 1)',
   }),
+  dropdownIndicator: (base, state) => ({
+    ...base,
+    transition: 'all .2s ease',
+    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
+  }),
 };
