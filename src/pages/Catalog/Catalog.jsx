@@ -1,13 +1,13 @@
-import { Loader } from 'components/Loader/Loader';
-import NavBar from 'components/NavBar/NavBar';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   useGetCarsByPageQuery,
   useGetAdvertsQuery,
 } from '../../redux/operations';
-import { LoadMore, WrapperFilter, WrapperList } from './Catalog.styled';
+import { Loader } from 'components/Loader/Loader';
+import NavBar from 'components/NavBar/NavBar';
 import CarItem from 'components/CarItem/CarItem';
 import Filter from 'components/Filter/Filter';
+import { LoadMore, WrapperFilter, WrapperList } from './Catalog.styled';
 
 export default function Catalog() {
   const [page, setPage] = useState(1);
