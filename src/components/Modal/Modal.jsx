@@ -1,3 +1,4 @@
+import React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import iconClose from '../../images/x.svg';
@@ -34,7 +35,13 @@ const style = {
   boxShadow: 24,
 };
 
-export default function BasicModal({ open, onClose, data }) {
+const BasicModal = ({ open, onClose, data }) => {
+  const handleImageError = e => {
+    if (e.nativeEvent.status === 401) {
+      return;
+    }
+  };
+
   return (
     <div>
       <Modal
@@ -54,11 +61,7 @@ export default function BasicModal({ open, onClose, data }) {
                 width="461"
                 height="248"
                 alt="Car"
-                onError={e => {
-                  if (e.nativeEvent.status === 401) {
-                    return;
-                  }
-                }}
+                onError={handleImageError}
               />
             ) : (
               <Image src={placeholderImage} alt="Placeholder" />
@@ -131,4 +134,6 @@ export default function BasicModal({ open, onClose, data }) {
       </Modal>
     </div>
   );
-}
+};
+
+export default BasicModal;
