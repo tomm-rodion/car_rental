@@ -14,7 +14,7 @@ import {
   SpanRight,
 } from './Filter.styled';
 
-export default function Filter({ makes, prices, onFilterChange }) {
+const Filter = ({ makes, prices, onFilterChange }) => {
   const [selectedMake, setSelectedMake] = useState('');
   const [selectedPriceStep, setSelectedPriceStep] = useState(null);
   const [selectedPriceLabel, setSelectedPriceLabel] = useState('');
@@ -124,7 +124,7 @@ export default function Filter({ makes, prices, onFilterChange }) {
       <Button text="Search" onClick={handleFilterClick} width="135px" />
     </Container>
   );
-}
+};
 
 const selectStyles = {
   control: styles => ({
@@ -155,3 +155,5 @@ const selectStyles = {
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
   }),
 };
+
+export default Filter;
