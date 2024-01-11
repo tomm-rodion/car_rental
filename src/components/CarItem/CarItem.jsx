@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import Button from 'components/Button/Button';
 import {
   Wrapper,
@@ -11,16 +12,20 @@ import {
   List,
   Item,
 } from './CarItem.styled';
-
 import Modal from 'components/Modal/Modal';
 import SelectedIcon from 'components/SelectedIcon/SelectedIcon';
 import placeholderImage from '../../images/bung.png';
-export default function CarItem({ data }) {
+
+// Компонент для відображення окремого елемента автомобільного списку
+const CarItem = ({ data }) => {
+  // Стан для відстеження відкриття та закриття модального вікна
   const [open, setOpen] = useState(false);
 
+  // Обробники відкриття та закриття модального вікна
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // Деструктуризація властивостей об'єкту data
   const {
     make,
     model,
@@ -36,8 +41,10 @@ export default function CarItem({ data }) {
 
   return (
     <Wrapper>
+      {/* Компонент відзначення (SelectedIcon) */}
       <ImageWrap>
         <SelectedIcon data={data} />
+        {/* Зображення автомобіля */}
         {img ? (
           <Image
             src={img}
@@ -52,12 +59,16 @@ export default function CarItem({ data }) {
           <Image src={placeholderImage} alt="Placeholder" />
         )}
       </ImageWrap>
+
+      {/* Заголовок та ціна автомобіля */}
       <TitleWrap>
         <Title>
           {make} <Span>{model}</Span>, {year}
         </Title>
         <Text>{rentalPrice}</Text>
       </TitleWrap>
+
+      {/* Список властивостей автомобіля */}
       <List>
         <Item>{address?.split(',')[1]}</Item>
         <Item>{address?.split(',')[2]}</Item>
@@ -67,8 +78,14 @@ export default function CarItem({ data }) {
         <Item>{mileage}</Item>
         <Item>{accessories?.[0]}</Item>
       </List>
+
+      {/* Кнопка "Дізнатися більше" з обробником відкриття модального вікна */}
       <Button onClick={handleOpen} text="Learn more" width="274px" />
+
+      {/* Модальне вікно, яке відображається при відкритті */}
       {open && <Modal open={open} onClose={handleClose} data={data} />}
     </Wrapper>
   );
-}
+};
+
+export default CarItem;
