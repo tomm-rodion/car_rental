@@ -36,6 +36,7 @@ const style = {
 };
 
 const BasicModal = ({ open, onClose, data }) => {
+  // Обробник помилки для зображення автомобіля
   const handleImageError = e => {
     if (e.nativeEvent.status === 401) {
       return;
@@ -44,17 +45,23 @@ const BasicModal = ({ open, onClose, data }) => {
 
   return (
     <div>
+      {/* Модальне вікно */}
       <Modal
         open={open}
         onClose={onClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
+        {/* Обгортка для стилізації та позиціонування */}
         <Box sx={style}>
+          {/* Основний контент модального вікна */}
           <Wrapper>
+            {/* Іконка для закриття модального вікна */}
             <CloseIcon onClick={onClose}>
               <IconX src={iconClose} alt="Close button" />
             </CloseIcon>
+
+            {/* Зображення автомобіля або запасне, якщо відсутнє */}
             {data.img ? (
               <Image
                 src={data.img}
@@ -67,13 +74,17 @@ const BasicModal = ({ open, onClose, data }) => {
               <Image src={placeholderImage} alt="Placeholder" />
             )}
 
+            {/* Контейнер для текстової інформації про автомобіль */}
             <WrapInfoContainer>
               <TextWrap>
+                {/* Заголовок про марку, модель та рік випуску */}
                 <TitleAboutCar>
                   {data.make} <Span>{data.model}, </Span>
                   {data.year}
                 </TitleAboutCar>
               </TextWrap>
+
+              {/* Список властивостей автомобіля */}
               <List>
                 <Item>{data.address.split(',')[1]}</Item>
                 <Item>{data.address.split(',')[2]}</Item>
@@ -81,11 +92,17 @@ const BasicModal = ({ open, onClose, data }) => {
                 <Item>Year: {data.year}</Item>
                 <Item>Type: {data.type}</Item>
               </List>
+
+              {/* Додаткова інформація про автомобіль */}
               <List>
                 <Item>Fuel Consumption: {data.fuelConsumption}</Item>
                 <Item>Engine Size: {data.engineSize}</Item>
               </List>
+
+              {/* Опис автомобіля */}
               <Description>{data.description}</Description>
+
+              {/* Інформація про аксесуари та функціональні можливості */}
               <Info>Accessories and functionalities:</Info>
               <List>
                 {data.accessories.map(item => (
@@ -97,6 +114,8 @@ const BasicModal = ({ open, onClose, data }) => {
                   <Item key={item}>{item}</Item>
                 ))}
               </List>
+
+              {/* Умови оренди */}
               <Info>Rental Conditions:</Info>
               <ConditionList>
                 <ConditionItem>
@@ -122,6 +141,8 @@ const BasicModal = ({ open, onClose, data }) => {
                 </ConditionItem>
               </ConditionList>
             </WrapInfoContainer>
+
+            {/* Кнопка для оренди автомобіля */}
             <Button
               text="Rental car"
               width="168px"
